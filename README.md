@@ -1,4 +1,4 @@
-| Module             | Opération                    | Requête SQL Approximative                                     | Code Python ORM Associé                                                     |
+| Module             | Opération                    | Requête SQL                                     | Code Python ORM Associé                                                     |
 |--------------------|------------------------------|--------------------------------------------------------------|-----------------------------------------------------------------------------|
 | Ventes (Sales)     | Création d'une commande de vente | `INSERT INTO sale_order (customer_id, order_date, ...) VALUES (...);` | `env['sale.order'].create({'customer_id': ..., 'order_date': ..., ...})`    |
 | Ventes (Sales)     | Ajout d'un produit à une commande | `INSERT INTO sale_order_line (order_id, product_id, quantity, ...) VALUES (...);` | `env['sale.order.line'].create({'order_id': ..., 'product_id': ..., 'quantity': ..., ...})` |
