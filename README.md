@@ -1,0 +1,8 @@
+| Module             | Opération                    | Requête SQL Approximative                                     | Code Python ORM Associé                                                     |
+|--------------------|------------------------------|--------------------------------------------------------------|-----------------------------------------------------------------------------|
+| Ventes (Sales)     | Création d'une commande de vente | `INSERT INTO sale_order (customer_id, order_date, ...) VALUES (...);` | `env['sale.order'].create({'customer_id': ..., 'order_date': ..., ...})`    |
+| Ventes (Sales)     | Ajout d'un produit à une commande | `INSERT INTO sale_order_line (order_id, product_id, quantity, ...) VALUES (...);` | `env['sale.order.line'].create({'order_id': ..., 'product_id': ..., 'quantity': ..., ...})` |
+| Inventaire (Inventory) | Mise à jour du stock d'un produit | Varie selon les méthodes de gestion de stock                         | `env['product.product'].browse([...]).write({'quantity': ...})`             |
+| Inventaire (Inventory) | Réception d'un stock          | Varie selon les spécificités de l'opération                        | `env['stock.picking'].create({...})`                                        |
+| Comptabilité (Accounting) | Création d'une facture        | `INSERT INTO account_invoice (customer_id, invoice_date, ...) VALUES (...);` | `env['account.move'].create({'partner_id': ..., 'invoice_date': ..., ...})` |
+| Comptabilité (Accounting) | Paiement d'une facture        | Varie en fonction de la structure de paiement                     | `env['account.payment'].create({...}).post()`                               |
